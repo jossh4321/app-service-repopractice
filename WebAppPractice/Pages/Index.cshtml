@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Pruduct List : Alpha Version</h1>
+    <h3 class="display-9"> @Model.slogan</h3>
+    <table class="table">
+  <thead>
+      <tr> Feature Flag 
+                @if (@Model.featureFlag)
+                {
+                    <p>Beta Version</p>
+                } else
+                {
+                    <p>Alfha Version</p>
+                }
+
+      </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product ID</th>
+      <th scope="col">Produc Name</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      @foreach (var item in @Model.productList)
+            {
+                <tr>
+                  <th scope="row">1</th>
+                  <td>@item.ProductID</td>
+                  <td>@item.ProductName</td>
+                  <td>@item.Quantity</td>
+                </tr>
+            }
+  </tbody>
+</table>
+
+</div>
